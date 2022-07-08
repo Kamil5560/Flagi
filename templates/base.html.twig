@@ -24,8 +24,8 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Strona Główna <span class="sr-only">(current)</span></a>
+                <li class="nav-item {% if app.request.get('_route') == 'app_index' %}active{% endif %}">
+                    <a class="nav-link" href="{{ path('app_index') }}">Strona Główna <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Ranking</a>
@@ -42,7 +42,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Zaloguj się</a>
+                    <a class="nav-link {% if app.request.get('_route') == 'app_login' %}active{% endif %}" href="{{ path('app_login') }}">Zaloguj się</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Zarejestruj się</a>
