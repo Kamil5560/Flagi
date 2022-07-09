@@ -40,19 +40,19 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#">Zgadnij państwo</a>
                     <a class="dropdown-item" href="#">Zgadnij stolicę</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Zgadnij wszystko!</a>
+{#                    <div class="dropdown-divider"></div>#}
+{#                    <a class="dropdown-item" href="#">Zgadnij wszystko!</a>#}
                 </div>
             </li>
             {% if app.user %}
                 {% if is_granted('ROLE_ADMIN') %}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">CRM</a>
+                        <a class="nav-link" href="{{ path('admin') }}">CRM</a>
                     </li>
-                {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Twoje konto</a>
-                    </li>
+{#                {% else %}#}
+{#                    <li class="nav-item">#}
+{#                        <a class="nav-link" href="#">Twoje konto</a>#}
+{#                    </li>#}
                 {% endif %}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('app_logout') }}">Wyloguj się</a>
@@ -62,10 +62,10 @@
                     <a class="nav-link {% if app.request.get('_route') == 'app_login' %}active{% endif %}"
                        href="{{ path('app_login') }}">Zaloguj się</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link {% if app.request.get('_route') == 'app_register' %}active{% endif %}"
-                       href="{{ path('app_register') }}">Zarejestruj się</a>
-                </li>
+{#                <li class="nav-item">#}
+{#                    <a class="nav-link {% if app.request.get('_route') == 'app_register' %}active{% endif %}"#}
+{#                       href="{{ path('app_register') }}">Zarejestruj się</a>#}
+{#                </li>#}
             {% endif %}
         </ul>
     </div>
