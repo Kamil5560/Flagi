@@ -14,16 +14,13 @@ class Country
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $photoflag;
+    private ?string $photoflag;
 
     #[ORM\Column(type: 'string', length: 255)]
     private $country;
 
     #[ORM\Column(type: 'string', length: 255)]
     private $capitalcity;
-
-    #[ORM\Column(type: 'datetime_immutable')]
-    private $uploaded_at;
 
     public function getId(): ?int
     {
@@ -66,15 +63,14 @@ class Country
         return $this;
     }
 
-    public function getUploadedAt(): ?\DateTimeImmutable
+    public function getCountryUrl(): ?string
     {
-        return $this->uploaded_at;
-    }
-
-    public function setUploadedAt(\DateTimeImmutable $uploaded_at): self
-    {
-        $this->uploaded_at = $uploaded_at;
-
-        return $this;
+        if (!$this->photoflag) {
+            return null;
+        }
+        if (str_contains($this->photoflag, '/')) {
+            return $this->photoflag;
+        }
+        return sprintf('/uploads/photoflag/%s', $this->photoflag);
     }
 }
