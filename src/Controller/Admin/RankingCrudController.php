@@ -34,4 +34,10 @@ class RankingCrudController extends AbstractCrudController
             ->remove(Crud::PAGE_DETAIL, Action::EDIT)
             ;
     }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setPageTitle('index', 'Ranking');
+    }
 }

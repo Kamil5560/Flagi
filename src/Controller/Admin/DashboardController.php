@@ -19,36 +19,20 @@ class DashboardController extends AbstractDashboardController
     public function index(): Response
     {
         return $this->render('admin/index.html.twig');
-
-        // Option 1. You can make your dashboard redirect to some common page of your backend
-        //
-        // $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
-        // return $this->redirect($adminUrlGenerator->setController(OneOfYourCrudController::class)->generateUrl());
-
-        // Option 2. You can make your dashboard redirect to different pages depending on the user
-        //
-        // if ('jane' === $this->getUser()->getUsername()) {
-        //     return $this->redirect('...');
-        // }
-
-        // Option 3. You can render some custom template to display a proper dashboard with widgets, etc.
-        // (tip: it's easier if your template extends from @EasyAdmin/page/content.html.twig)
-        //
-        // return $this->render('some/path/my-dashboard.html.twig');
     }
 
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Flagi');
+            ->setTitle('CMR');
     }
 
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Country', 'fas fa-list', Country::class);
+        yield MenuItem::linkToCrud('Państwa', 'fas fa-list', Country::class);
         yield MenuItem::linkToCrud('Ranking', 'fas fa-list', Ranking::class);
-        yield MenuItem::linkToCrud('User', 'fas fa-list', User::class);
+        yield MenuItem::linkToCrud('Użytkownicy', 'fas fa-list', User::class);
         yield MenuItem::linkToRoute('Powrót', 'fas fa-home', 'app_index');
     }
 }
