@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello IndexController!{% endblock %}
+
+{% block body %}
+    <div class="container pb-5 pt-5">
+    <h1 class="h3 mb-3 mt-5 font-weight-normal text-center">Nowa gra!</h1>
+
+    {% form_theme UserRankingForm 'bootstrap_5_layout.html.twig' %}
+        {{ form_start(UserRankingForm) }}
+        {{ form_row(UserRankingForm.name) }}
+        {{ form_row(UserRankingForm.game, {'label_attr': {'class': 'form-select form-select-lg mb-3'}}) }}
+        {{ form_row(UserRankingForm.agreeTerms) }}
+
+        <button type="submit" class="btn btn-primary">Zacznij grę</button>
+        {{ form_end(UserRankingForm) }}
+    </div>
+{% endblock %}
